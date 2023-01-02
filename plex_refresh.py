@@ -11,9 +11,9 @@ PLEX_URL = getenv('PLEX_URL')
 
 
 def list_libraries():
-    url = f'{args.url}/library/sections'
+    url = f'{PLEX_URL}/library/sections'
     headers = {
-        'X-Plex-Token': args.token,
+        'X-Plex-Token': PLEX_TOKEN,
         'Accept': 'application/json',
     }
     r = requests.get(url, headers=headers)
@@ -22,9 +22,9 @@ def list_libraries():
 
 
 def scan_library(key: str, path: str):
-    url = f'{args.url}/library/sections/{key}/refresh'
+    url = f'{PLEX_URL}/library/sections/{key}/refresh'
     headers = {
-        'X-Plex-Token': args.token,
+        'X-Plex-Token': PLEX_TOKEN,
         'Accept': 'application/json',
     }
     params = {
